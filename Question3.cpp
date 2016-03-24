@@ -1,8 +1,8 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //                         COMPUTER METHODS 3 PRACTICAL TEST 1 (MOCK)
-// Name:
-// Student No:
-// Date: 
+// Name:Halalisile Mzobe
+// Student No:214519970
+// Date: 23/03/2016
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 #include <iostream>
 
@@ -22,6 +22,13 @@ private:
 	int num;				// numerator;
 	int denom;				// denominator;
 public:
-	Fraction(int n, int d) : num(n), denum(d) { };
-	void print() { cout << num << "/" << denom; };
+	friend ostream& operator<<(ostream& os, const Fraction& frac);
+	Fraction(int n, int d) : num(n), denom(d) { };
+	// print() { cout << num << "/" << denom; };
+
 };
+
+ostream& operator<<(ostream& os, const Fraction& frac)
+{
+	os << frac.num << "/" << frac.denom;
+}
