@@ -18,17 +18,30 @@ using namespace std;
 // 3.3 create a driver program to test your overloaded > operators and your overloaded 
 
 class Fraction {
+	friend bool operator > (Fraction, Fraction);
 private:
 	int num;				// numerator;
 	int denom;				// denominator;
 public:
-	friend ostream& operator<<(ostream& os, const Fraction& frac);
+	
 	Fraction(int n, int d) : num(n), denom(d) { };
-	// print() { cout << num << "/" << denom; };
-
+	void print() { cout << num << "/" << denom; };
 };
 
-ostream& operator<<(ostream& os, const Fraction& frac)
+//3.1
+bool operator > (Fraction F1, Fraction F2)
 {
-	os << frac.num << "/" << frac.denom;
+	bool something =((float) F1.num /F1.denom) >((float) F2.num /F2.denom);
+	return something;
 }
+
+
+int main()
+{
+	Fraction frac(1, 2), frac2(1, 4);
+	bool i;
+	frac.print();
+	i = frac > frac2;
+	cout << "\n"<<i << endl;
+}
+
