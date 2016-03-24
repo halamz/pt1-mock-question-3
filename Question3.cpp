@@ -52,9 +52,10 @@ int main()
 	Fraction frac(1, 2), frac2(1, 4);
 	bool i;
 	frac.print();
-	i = frac > frac2;
-	cout << "\n"<<i << endl;
-	frac = add(frac2, 1);
+	cout << "\n" << (frac > frac2) << endl; //testing the overloaded greater than operator
+	frac = add(frac2, 1);	//testing the overloaded add function
+	frac.print();
+	cout << "\n";
+	frac = add(1,frac2);	
 	frac.print();
 }
-
