@@ -19,11 +19,12 @@ using namespace std;
 
 class Fraction {
 	friend bool operator > (Fraction, Fraction);
+	friend Fraction add(Fraction,int);
+	friend Fraction add(int,Fraction);
 private:
 	int num;				// numerator;
 	int denom;				// denominator;
 public:
-	
 	Fraction(int n, int d) : num(n), denom(d) { };
 	void print() { cout << num << "/" << denom; };
 };
@@ -35,7 +36,17 @@ bool operator > (Fraction F1, Fraction F2)
 	return something;
 }
 
-
+//3.2
+Fraction add(Fraction frac, int n)
+{
+	frac.num = n*frac.denom + n;
+	return frac;
+}
+Fraction add(int n,Fraction frac)
+{
+	frac.num = n*frac.denom + n;
+	return frac;
+}
 int main()
 {
 	Fraction frac(1, 2), frac2(1, 4);
@@ -43,5 +54,7 @@ int main()
 	frac.print();
 	i = frac > frac2;
 	cout << "\n"<<i << endl;
+	frac = add(frac2, 1);
+	frac.print();
 }
 
